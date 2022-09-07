@@ -1,0 +1,22 @@
+<span *ngIf="age<18">
+    You are not eligible to vote
+</span>
+<span *ngIf="age>=18">
+    You are eligible to vote
+</span>
+<div *ngIf ="isAvaialble">
+      <h1>Available</h1>
+</div>
+
+<ul *ngFor ="let s of salaries">
+  <li>{{s}}</li>
+</ul>
+<ul *ngFor ="let u of users">
+  <div *ngIf ="u.gender === 'Male' && u.salary > 300000 ">
+  <li>{{u.name}}</li>
+  <li>{{u.age}}</li>
+  <li>{{u.salary}}</li>
+  <li>{{u.isActive}}</li>
+  <li>{{u.gender}}</li>
+</div>
+</ul>
