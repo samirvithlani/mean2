@@ -1,0 +1,5 @@
+<ul *ngFor = "let t of tutorials">
+    <li><a [routerLink] ="['/tutorialdetail',t.id]">Id =  {{t.id}}</a></li>
+    <li><a [routerLink]="['/tutorialdetail',t.title]">Title ={{t.title}} </a></li>
+    <li>Active ={{t.published}} </li>
+</ul>
