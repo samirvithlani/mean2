@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-addtutorial',
@@ -8,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class AddtutorialComponent implements OnInit {
 
   constructor() { }
+  addTutorial(){
+    console.log(this.tutorialGroup);
+  }
+  tutorialGroup = new FormGroup({
+    title:new FormControl('',Validators.required),
+    description:new FormControl('',Validators.minLength(4)),
+    gender:new FormControl(''),
+    phone:new FormControl('',Validators.pattern('[6-9]{1}[0-9]{9}')),
 
+  })
   ngOnInit() {
   }
 

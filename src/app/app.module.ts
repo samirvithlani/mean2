@@ -10,6 +10,7 @@ import { AddtutorialComponent } from './tutorials/addtutorial/addtutorial.compon
 import { TutorialListComponent } from './tutorials/tutorial-list/tutorial-list.component';
 import { TutorialDetailComponent } from './tutorials/tutorial-detail/tutorial-detail.component';
 import { TutorialpublishComponent } from './tutorials/tutorialpublish/tutorialpublish.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TutorialpublishComponent } from './tutorials/tutorialpublish/tutorialpu
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
