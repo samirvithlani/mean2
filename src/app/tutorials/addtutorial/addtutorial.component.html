@@ -2,16 +2,20 @@
 
     <div>
         <label for="title">Title</label>
-        <input type="text" formControlName = "title">
+        <input type="text" formControlName = "title" [(ngModel)]="title">
         <span *ngIf="tutorialGroup.controls.title.dirty && tutorialGroup.controls.title.errors">
             title is required
         </span>
+        {{title}}
     </div>
     <div>
         <label for="description">Description</label>
         <input type="text" formControlName = "description">
-        <span *ngIf="tutorialGroup.controls.description.dirty && tutorialGroup.controls.description.errors">
-            description
+        <span *ngIf = "tutorialGroup.controls.description.errors?.required && tutorialGroup.controls.description.touched">
+            Description is required
+        </span> 
+        <span *ngIf = "tutorialGroup.controls.description.errors?.minlength && tutorialGroup.controls.description.dirty">
+            Description must be at least 5 characters
         </span>
     </div>
     <div>

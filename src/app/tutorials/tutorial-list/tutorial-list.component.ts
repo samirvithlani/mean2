@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TutorialService } from '../tutorial.service';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:TutorialService) { }
+  data:any;
+
   tutorials =[
     {
       id:1,
@@ -30,6 +33,13 @@ export class TutorialListComponent implements OnInit {
   ]
 
   ngOnInit() {
+
+    this.service.getAllTutorials().subscribe(res=>{
+      console.log(res.data);
+      this.data = res.data;
+    })
   }
+
+
 
 }

@@ -14,7 +14,7 @@ export class AddtutorialComponent implements OnInit {
   }
   tutorialGroup = new FormGroup({
     title:new FormControl('',Validators.required),
-    description:new FormControl('',Validators.minLength(4)),
+    description:new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(15)]),
     gender:new FormControl(''),
     phone:new FormControl('',Validators.pattern('[6-9]{1}[0-9]{9}')),
 
