@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+// import { ToastrService } from 'ngx-toastr';
+import { TutorialService } from '../tutorial.service';
 
 @Component({
   selector: 'app-addtutorial',
@@ -8,15 +11,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddtutorialComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:TutorialService,private router:Router) { }
+
   addTutorial(){
-    console.log(this.tutorialGroup);
+    this.service.addTutorial(this.tutorialGroup.value).subscribe(res=>{
+      // this.toastr.success('Tutorial Added Successfully');
+      this.router.navigate(['/tutoriallist']);
+    })
   }
   tutorialGroup = new FormGroup({
     title:new FormControl('',Validators.required),
     description:new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(15)]),
-    gender:new FormControl(''),
-    phone:new FormControl('',Validators.pattern('[6-9]{1}[0-9]{9}')),
+    published:new FormControl('',Validators.required),
+    fees:new FormControl('',Validators.required)
 
   })
   ngOnInit() {

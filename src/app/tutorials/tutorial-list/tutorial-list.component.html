@@ -1,9 +1,24 @@
-<ul *ngFor = "let t of tutorials">
-    <li><a [routerLink] ="['/tutorialdetail',t.id]">Id =  {{t.id}}</a></li>
-    <li><a [routerLink]="['/tutorialdetail',t.title]">Title ={{t.title}} </a></li>
-    <li>Active ={{t.published}} </li>
-</ul>
-
-<ul *ngFor ="let d of data">
-    <li>{{d.first_name}}</li>
-</ul>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">TITLE</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">PUBLISHED</th>
+        <th scope="col">FEES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let t of tutorials">
+        <th scope="row">{{t.id}}</th>
+        <td>{{t.title}}</td>
+        <td>{{t.description}}</td>
+        <td>{{t.published}}</td>
+        <td>{{t.fees}}</td>
+        <td>
+            <button class="btn btn-danger" (click)="delete(t.id)">DELETE</button>
+        </td>
+      </tr>
+    
+    </tbody>
+  </table>

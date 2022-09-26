@@ -18,19 +18,17 @@
             Description must be at least 5 characters
         </span>
     </div>
+    
     <div>
-        <label for="published">Gender</label>
-        
-        MALE<input type="radio" formControlName ="gender" value="male">
-        FEMALE<input type="radio" formControlName ="gender" value="female">
+        <label for="published">Published</label>
+        PUBLISHED<input type="radio" formControlName = "published" value="true">
+        NOT PUBLISHED<input type="radio" formControlName = "published" value="false">
     </div>
     <div>
-        <label>phone</label>
-        <input type="text" formControlName ="phone">
-        <span *ngIf="tutorialGroup.controls.phone.dirty && tutorialGroup.controls.phone.errors">
-            invalid contact no
-        </span>
+        <label for="fees">Fees</label>
+        <input type="number" formControlName = "fees">
     </div>
+
     <div>
         <input type="submit" value="submit">
     </div>

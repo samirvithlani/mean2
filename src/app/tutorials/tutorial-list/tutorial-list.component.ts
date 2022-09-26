@@ -9,34 +9,22 @@ import { TutorialService } from '../tutorial.service';
 export class TutorialListComponent implements OnInit {
 
   constructor(private service:TutorialService) { }
-  data:any;
+  tutorials:any;
 
-  tutorials =[
-    {
-      id:1,
-      title:'Angular Tutorial',
-      description:'Angular Tutorial for beginners',
-      published:true
-    },
-    {
-      id:2,
-      title:'Java Tutorial',
-      description:'Java utorial for beginners',
-      published:false
-    },
-    {
-      id:3,
-      title:'Python Tutorial',
-      description:'Python Tutorial for beginners',
-      published:true
-    }
-  ]
-
+  delete(id){
+    
+this.service.deleteTutorial(id).subscribe(res=>{
+  alert('Tutorial Deleted Successfully');
+  //getalltuturials
+  //
+  this.ngOnInit();
+})
+  }
   ngOnInit() {
 
     this.service.getAllTutorials().subscribe(res=>{
-      console.log(res.data);
-      this.data = res.data;
+      console.log(res);
+      this.tutorials = res
     })
   }
 
