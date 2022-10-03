@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 // import { ToastrService } from 'ngx-toastr';
 import { TutorialService } from '../tutorial.service';
 
@@ -11,19 +12,19 @@ import { TutorialService } from '../tutorial.service';
 })
 export class AddtutorialComponent implements OnInit {
 
-  constructor(private service:TutorialService,private router:Router) { }
+  constructor(private service:TutorialService,private router:Router,private toastr:ToastrService) { }
 
   addTutorial(){
     this.service.addTutorial(this.tutorialGroup.value).subscribe(res=>{
-      // this.toastr.success('Tutorial Added Successfully');
+       this.toastr.success('Tutorial Added Successfully');
       this.router.navigate(['/tutoriallist']);
     })
   }
-  tutorialGroup = new FormGroup({
-    title:new FormControl('',Validators.required),
-    description:new FormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(15)]),
-    published:new FormControl('',Validators.required),
-    fees:new FormControl('',Validators.required)
+  tutorialGroup = new UntypedFormGroup({
+    title:new UntypedFormControl('',Validators.required),
+    description:new UntypedFormControl('',[Validators.required,Validators.minLength(5),Validators.maxLength(15)]),
+    published:new UntypedFormControl('',Validators.required),
+    fees:new UntypedFormControl('',Validators.required)
 
   })
   ngOnInit() {

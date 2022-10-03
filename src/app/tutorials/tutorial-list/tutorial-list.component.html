@@ -17,6 +17,7 @@
         <td>{{t.fees}}</td>
         <td>
             <button class="btn btn-danger" (click)="delete(t.id)">DELETE</button>
+            <a class = "btn btn-info" [routerLink]="['/updatetutorial',t.id]">UPDATE</a>
         </td>
       </tr>
     

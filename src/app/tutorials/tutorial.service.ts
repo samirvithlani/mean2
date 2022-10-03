@@ -36,5 +36,31 @@ export class TutorialService {
       return this.http.delete('https://tutorialapi1.herokuapp.com/tutorial/'+id);
     }
 
+
+    public getTutorialById(id:any):Observable<any>{
+
+      return this.http.get("https://tutorialapi1.herokuapp.com/tutorial/"+id);
+
+    }
+
+    public updateTutorial(id:any,tutorial:any):Observable<any>{
+      if(tutorial.published == 'true'){
+        tutorial.published = true;
+      }
+      else{
+        tutorial.published = false;
+      }
+
+      var tutorialdata = {
+        title:tutorial.title,
+        description:tutorial.description,
+        published:tutorial.published,
+        fees:tutorial.fees
+      }
+
+
+      return this.http.put("https://tutorialapi1.herokuapp.com/tutorial/"+id,tutorialdata);
+    }
+
     
 }

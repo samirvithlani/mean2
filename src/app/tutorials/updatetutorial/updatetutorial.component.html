@@ -1,15 +1,15 @@
-<form [formGroup]="tutorialGroup" (submit)="addTutorial()">
+<form [formGroup]="tutorialGroup" (submit)="updateTutorial()">
 
     <div>
         <label for="title">Title</label>
-        <input type="text" formControlName = "title">
+        <input type="text" formControlName = "title" [(ngModel)]="tutorial.title">
         <span *ngIf="tutorialGroup.controls.title.dirty && tutorialGroup.controls.title.errors">
             title is required
         </span>
     </div>
     <div>
         <label for="description">Description</label>
-        <input type="text" formControlName = "description">
+        <input type="text" formControlName = "description" [(ngModel)]="tutorial.description">
         <span *ngIf = "tutorialGroup.controls.description.errors?.required && tutorialGroup.controls.description.touched">
             Description is required
         </span> 
@@ -20,12 +20,15 @@
     
     <div>
         <label for="published">Published</label>
-        PUBLISHED<input type="radio" formControlName = "published" value="true">
+        
+        PUBLISHED<input type="radio" formControlName = "published" value="true" >
         NOT PUBLISHED<input type="radio" formControlName = "published" value="false">
+        
+
     </div>
     <div>
         <label for="fees">Fees</label>
-        <input type="number" formControlName = "fees">
+        <input type="number" formControlName = "fees" [(ngModel)]="tutorial.fees">
     </div>
 
     <div>

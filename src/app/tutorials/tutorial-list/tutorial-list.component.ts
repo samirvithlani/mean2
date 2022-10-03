@@ -13,8 +13,8 @@ export class TutorialListComponent implements OnInit {
 
   delete(id){
     
-this.service.deleteTutorial(id).subscribe(res=>{
-  alert('Tutorial Deleted Successfully');
+  this.service.deleteTutorial(id).subscribe(res=>{
+  //alert('Tutorial Deleted Successfully');
   //getalltuturials
   //
   this.ngOnInit();

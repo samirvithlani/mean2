@@ -13,7 +13,9 @@ import { TutorialpublishComponent } from './tutorials/tutorialpublish/tutorialpu
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { UpdatetutorialComponent } from './tutorials/updatetutorial/updatetutorial.component';
+import { LoginuserComponent } from './loginuser/loginuser.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddtutorialComponent,
     TutorialListComponent,
     TutorialDetailComponent,
-    TutorialpublishComponent
+    TutorialpublishComponent,
+    UpdatetutorialComponent,
+    LoginuserComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot()
     
   ],
   providers: [],
