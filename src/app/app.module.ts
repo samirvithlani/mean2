@@ -16,6 +16,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatetutorialComponent } from './tutorials/updatetutorial/updatetutorial.component';
 import { LoginuserComponent } from './loginuser/loginuser.component';
+import {TableModule} from 'primeng/table';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
+
 
 
 @NgModule({
@@ -37,10 +42,14 @@ import { LoginuserComponent } from './loginuser/loginuser.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    TableModule,
+    ToastModule
+    
+
     
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

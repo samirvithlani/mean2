@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { TutorialService } from '../tutorial.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { TutorialService } from '../tutorial.service';
 })
 export class TutorialListComponent implements OnInit {
 
-  constructor(private service:TutorialService) { }
+  constructor(private service:TutorialService,private messageService:MessageService) { }
   tutorials:any;
 
   delete(id){
@@ -28,6 +29,10 @@ export class TutorialListComponent implements OnInit {
     })
   }
 
+  showtoast()
+{
+  this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
+}
 
 
 }

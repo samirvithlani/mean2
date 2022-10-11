@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { TutorialService } from '../tutorials/tutorial.service';
 
 @Component({
   selector: 'app-loginuser',
@@ -8,27 +12,34 @@ import { Component, OnInit } from '@angular/core';
 export class LoginuserComponent implements OnInit {
 
   //api login --> loggedin user detail... id name email password ....
-  userId:number=101;
-  localid:any =0;
-  localid1:any =0;
-  constructor() { }
+
+  constructor(private service:TutorialService,private toastr:ToastrService,private router:Router) { }
+
+  loginUser = new FormGroup({
+
+    userEmail: new FormControl(''),
+    userPassword: new FormControl(''),
+  })
 
   ngOnInit(): void {
-    //string formate...
-    localStorage.setItem("id",this.userId.toString());
-    sessionStorage.setItem("id",this.userId.toString());
   }
 
-  getData (){
+  login(){
 
-    this.localid = localStorage.getItem("id");
-    this.localid1 = sessionStorage.getItem("id");
+      this.service.loginUser(this.loginUser.value).subscribe(res=>{
+        if(res.code==="OK"){
+          localStorage.setItem("id",res.object.uId)
+          this.toastr.success("Login Successfull");
+          this.router.navigateByUrl("/tutoriallist");
+
+        }
+        else{
+          alert("no user found...")
+        }
+      })
+
   }
   logout(){
-
-    localStorage.removeItem("id");
-    sessionStorage.removeItem("id");
-    //localStorage.clear();
 
   }
 

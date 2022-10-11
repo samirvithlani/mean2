@@ -1,4 +1,14 @@
-<p>loginuser works!</p>
-<h1>Loggedin userid ={{localid}}</h1>
-<button (click)="getData()">getData</button>
-<button (click)="logout()">Logout</button>
+<h1>LOGIN USER</h1>
+<form [formGroup]="loginUser" (submit)="login()">
+    <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="userEmail">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="userPassword">
+    </div>
+    <div>
+        <input class="btn btn-info" type="submit" value="login">
+    </div>
+</form>

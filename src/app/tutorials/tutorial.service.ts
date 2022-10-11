@@ -62,5 +62,13 @@ export class TutorialService {
       return this.http.put("https://tutorialapi1.herokuapp.com/tutorial/"+id,tutorialdata);
     }
 
+    public loginUser(user:any):Observable<any>{
+
+      return this.http.post("http://localhost:8080/loginuser",user);
+    }
+
+    public getuserById(id:any):Observable<any>{
+      return this.http.get("http://localhost:8080/user/"+id);
+    }
     
 }

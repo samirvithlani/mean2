@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -23,3 +23,28 @@
     
     </tbody>
   </table>
+ -->
+<p-toast></p-toast>
+<button (click) = "showtoast()">show</button>
+  <p-table [value]="tutorials" responsiveLayout="scroll"
+  [paginator]="true" [rows]="7" [showCurrentPageReport]="true" responsiveLayout="scroll"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">ID<p-sortIcon field="id"></p-sortIcon></th>
+            <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+            <th pSortableColumn="description">Desc <p-sortIcon field="description"></p-sortIcon></th>
+            <th pSortableColumn="published">Quan <p-sortIcon field="published"></p-sortIcon></th>
+            <th pSortableColumn="fees">FEES <p-sortIcon field="fees"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-t>
+        <tr>
+        <td>{{t.id}}</td>
+       <td>{{t.title}}</td>
+       <td>{{t.description}}</td>
+       <td>{{t.published}}</td>
+       <td>{{t.fees}}</td>
+        </tr>
+    </ng-template>
+</p-table>
